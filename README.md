@@ -1,6 +1,7 @@
 ![flick|O17](/images/fliclO17.jpg?raw=true)
 # flic|O17 firmware
-物理フリック入力キーボード「flic|O17」のファームウェアです。
+物理フリック入力キーボード「flic|O17」のファームウェアです。  
+[使用している様子 -YouTube](https://www.youtube.com/watch?v=WoC2kp0duEk)
 
 ## Dependency
 C++, [ArxContainer.h](https://github.com/hideakitai/ArxContainer), Wire.h, Adafruit_SSD1306.h
