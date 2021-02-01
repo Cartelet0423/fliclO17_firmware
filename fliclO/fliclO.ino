@@ -76,8 +76,8 @@ int tilcnt = 0;
 int delcnt = 0;
 int p_Press = -1;
 int Press = -1;
-int p_Stick = 0;
-int Stick = 0;
+int p_Stick = -1;
+int Stick = -1;
 
 
 void setup() {
@@ -171,12 +171,12 @@ void inputs() {
       if (Stick > 0) {
         if (p_Stick != Stick) {
           if (Entered) {
-            if (Press!=3){
-              for (int i=0;i<delcnt;i++)
+            if (Press != 3) {
+              for (int i = 0; i < delcnt; i++)
                 Keyboard.write(KEY_BACKSPACE);
+                delcnt = 0;
+                _Input(Press, Stick);
             }
-            delcnt = 0;
-            _Input(Press, Stick);
           } else {
             _Input(Press, Stick);
             Entered = true;
@@ -186,41 +186,41 @@ void inputs() {
         if (p_Stick == Stick) {
           relcnt++;
           if (relcnt == 15) {
-            if (Press!=3){
-              for (int i=0;i<delcnt;i++)
+            if (Press != 3) {
+              for (int i = 0; i < delcnt; i++)
                 Keyboard.write(KEY_BACKSPACE);
+                delcnt = 0;
+                _Input(Press, 0);
             }
-            delcnt = 0;
-            _Input(Press, 0);
           }
         } else {
           relcnt = 0;
         }
       }
     }
-  }else{
-    if (Stick>0){
-      if ((p_Stick == Stick)&&!Entered){
+  } else {
+    if (Stick > 0) {
+      if ((p_Stick == Stick) && !Entered) {
         tilcnt++;
         if (tilcnt == 3) {
-              Keyboard.press(arrows[Stick - 1]);
-              preShiin = "";
-              preBoin = "";
-              preAlp = "";
-        }
-      }else{
-        Keyboard.releaseAll();
-        if (tilcnt>3){
           Keyboard.press(arrows[Stick - 1]);
-        }else{
+          preShiin = "";
+          preBoin = "";
+          preAlp = "";
+        }
+      } else {
+        Keyboard.releaseAll();
+        if (tilcnt > 3) {
+          Keyboard.press(arrows[Stick - 1]);
+        } else {
           tilcnt = 0;
         }
       }
-    }else{
+    } else {
       Keyboard.releaseAll();
       Entered = false;
       tilcnt = 0;
-    }  
+    }
   }
 }
 
@@ -257,7 +257,6 @@ void kanaInput(int pb, int fd) {
       Keyboard.write(KEY_BACKSPACE);
       Keyboard.print(preShiin);
       Keyboard.print(preBoin);
-      delay(2);
     }
   } else if ((pb == 7) | (pb == 11)) {
     preShiin = "";
@@ -298,7 +297,7 @@ void enInput(int pb, int fd) {
     }
   } else {
     preAlp = *keys_e[pb][fd];
-    if (preAlp>0) delcnt = 1;
+    if (preAlp > 0) delcnt = 1;
     Keyboard.print(preAlp);
   }
 }
