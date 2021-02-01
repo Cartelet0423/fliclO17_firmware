@@ -174,8 +174,8 @@ void inputs() {
             if (Press != 3) {
               for (int i = 0; i < delcnt; i++)
                 Keyboard.write(KEY_BACKSPACE);
-                delcnt = 0;
-                _Input(Press, Stick);
+              delcnt = 0;
+              _Input(Press, Stick);
             }
           } else {
             _Input(Press, Stick);
@@ -189,8 +189,8 @@ void inputs() {
             if (Press != 3) {
               for (int i = 0; i < delcnt; i++)
                 Keyboard.write(KEY_BACKSPACE);
-                delcnt = 0;
-                _Input(Press, 0);
+              delcnt = 0;
+              _Input(Press, 0);
             }
           }
         } else {
