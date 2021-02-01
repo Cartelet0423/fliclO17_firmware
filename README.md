@@ -12,7 +12,7 @@ C++, [ArxContainer.h](https://github.com/hideakitai/ArxContainer), Wire.h, Adafr
 ## PIN assignments
 
 ### Key matrix
-||18|15|14|16|10|
+|-\\+|18|15|14|16|10|
 |:---:|:---:|:---:|:---:|:---:|:---:|
 |**９**|あ|か|さ|BS|Num|  
 |**８**|た|は|ま|Enter|あA| 
