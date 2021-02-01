@@ -201,6 +201,9 @@ void inputs() {
         tilcnt++;
         if (tilcnt == 3) {
               Keyboard.press(arrows[Stick - 1]);
+              preShiin = "";
+              preBoin = "";
+              preAlp = "";
         }
       }else{
         Keyboard.releaseAll();
