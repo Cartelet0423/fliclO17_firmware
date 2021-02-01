@@ -33,10 +33,13 @@ arx::map<char*, char*> henkan = {
   {"s", "z"},
   {"z", "s"},
   {"t", "d"},
+  {"lt", "d"},
   {"d", "t"},
   {"h", "b"},
   {"b", "p"},
-  {"p", "h"}
+  {"p", "h"},
+  {"y", "ly"},
+  {"ly", "y"}
 };
 
 const char* keys_e[12][5] = {
@@ -243,14 +246,8 @@ void kanaInput(int pb, int fd) {
     bool converted = true;
     if ((preShiin == "t") && (preBoin == "u")) {
       preShiin = "lt";
-    } else if (preShiin == "lt") {
-      preShiin = "d";
     } else if ((preShiin == "l") && (preBoin == "u")) {
       preShiin = "v";
-    } else if (preShiin == "y") {
-      preShiin = "ly";
-    } else if (preShiin == "ly") {
-      preShiin = "y";
     } else if (henkan.find(preShiin) != henkan.end()) {
       preShiin = henkan[preShiin];
     } else {
@@ -260,6 +257,7 @@ void kanaInput(int pb, int fd) {
       Keyboard.write(KEY_BACKSPACE);
       Keyboard.print(preShiin);
       Keyboard.print(preBoin);
+      delay(2);
     }
   } else if ((pb == 7) | (pb == 11)) {
     preShiin = "";
