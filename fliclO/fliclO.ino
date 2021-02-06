@@ -67,7 +67,7 @@ char* preBoin = "";
 char preAlp = "";
 int inputMode = 0; //0:JPN, 1:ENG, 2:NUM
 int preInputMode = 1;
-bool Entered;
+int Entered = -1;
 int pushButtonCnt = 0;
 int Mode = 0; //0:keyboard, 1:mouse
 int modeCount = 0;
@@ -170,7 +170,7 @@ void inputs() {
     } else {
       if (Stick > 0) {
         if (p_Stick != Stick) {
-          if (Entered) {
+          if (Entered == Press) {
             if (Press != 3) {
               for (int i = 0; i < delcnt; i++)
                 Keyboard.write(KEY_BACKSPACE);
@@ -179,7 +179,7 @@ void inputs() {
             }
           } else {
             _Input(Press, Stick);
-            Entered = true;
+            Entered = Press;
           }
         }
       } else {
@@ -200,7 +200,7 @@ void inputs() {
     }
   } else {
     if (Stick > 0) {
-      if ((p_Stick == Stick) && !Entered) {
+      if ((p_Stick == Stick) && (Entered < 0)) {
         tilcnt++;
         if (tilcnt == 3) {
           Keyboard.press(arrows[Stick - 1]);
@@ -218,7 +218,7 @@ void inputs() {
       }
     } else {
       Keyboard.releaseAll();
-      Entered = false;
+      Entered = -1;
       tilcnt = 0;
     }
   }
