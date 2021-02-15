@@ -166,7 +166,7 @@ void inputs() {
   if (Press >= 0) {
     if (p_Press < 0) {
       _Input(Press, Stick);
-      Entered = true;
+      Entered = Press;
     } else {
       if (Stick > 0) {
         if (p_Stick != Stick) {
