@@ -10,6 +10,8 @@ C++, [ArxContainer.h](https://github.com/hideakitai/ArxContainer), Wire.h, Adafr
 [Arduino IDE](https://www.arduino.cc/en/software)を使用してPro microに書き込みます。
 
 ## PIN assignments
+マイコンにはProMicroを使用しています。  
+ですので、別のマイコンボードを使用する場合は接続するピンを適宜変更し、プログラムを書き換える必要があります。
 
 ### Key matrix
 |-\\+|18|15|14|16|10|
